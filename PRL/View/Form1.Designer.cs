@@ -38,9 +38,7 @@
             button1 = new Button();
             button2 = new Button();
             linkLabel1 = new LinkLabel();
-            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // checkBox1
@@ -62,9 +60,9 @@
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label1.Location = new Point(58, 204);
             label1.Name = "label1";
-            label1.Size = new Size(117, 20);
+            label1.Size = new Size(105, 20);
             label1.TabIndex = 1;
-            label1.Text = "Tên Đăng Nhập";
+            label1.Text = "Số Điện Thoại";
             // 
             // label2
             // 
@@ -96,12 +94,14 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(327, 27);
             textBox1.TabIndex = 4;
+            textBox1.Tag = "";
             // 
             // textBox2
             // 
             textBox2.BackColor = SystemColors.ButtonFace;
             textBox2.Location = new Point(211, 274);
             textBox2.Name = "textBox2";
+            textBox2.PasswordChar = '*';
             textBox2.Size = new Size(327, 27);
             textBox2.TabIndex = 5;
             // 
@@ -143,19 +143,11 @@
             linkLabel1.BackColor = SystemColors.ButtonFace;
             linkLabel1.Location = new Point(367, 323);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(111, 20);
+            linkLabel1.Size = new Size(100, 20);
             linkLabel1.TabIndex = 9;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "Quên Mật Khẩu";
+            linkLabel1.Text = "Đổi Mật Khẩu";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Location = new Point(320, 33);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(125, 94);
-            pictureBox2.TabIndex = 10;
-            pictureBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -164,7 +156,6 @@
             BackgroundImage = PRL.Properties.Resources.fe8e1fc15ae197835c2b1411d6d24ba7;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox2);
             Controls.Add(linkLabel1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -177,8 +168,8 @@
             Controls.Add(checkBox1);
             Name = "Form1";
             Text = "Đăng Nhập Hệ Thống";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -195,6 +186,5 @@
         private Button button1;
         private Button button2;
         private LinkLabel linkLabel1;
-        private PictureBox pictureBox2;
     }
 }

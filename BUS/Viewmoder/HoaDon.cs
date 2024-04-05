@@ -10,7 +10,7 @@ namespace BUS.Viewmoder
     public class HoaDon
     {
         public int IdHoaDon {  get; set; }
-        public DateOnly? NgayTao {  get; set; }
+        public DateTime NgayTao {  get; set; }
         public double? TongTien {  get; set; }
         public string TenKhachHang { get; set; }
         public string SoDienThoai { get; set; }

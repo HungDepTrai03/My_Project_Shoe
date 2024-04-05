@@ -37,7 +37,7 @@ namespace Project_SHOE
 
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@password", password);
-                    
+
 
 
 
@@ -60,7 +60,7 @@ namespace Project_SHOE
                     {
                         MessageBox.Show("Đăng nhập thành công!");
 
-                        TrangChu trangchu = new TrangChu();
+                        TrangChu trangchu = new TrangChu(username);
                         trangchu.idcv = sdt;
                         trangchu.ShowDialog();
                     }
@@ -121,6 +121,11 @@ namespace Project_SHOE
         {
             ResetPass reset = new ResetPass();
             reset.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

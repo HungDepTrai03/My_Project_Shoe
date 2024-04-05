@@ -1,6 +1,7 @@
 ﻿using BUS.Viewmoder;
 using DAL.Models;
 using DAL.Repositori;
+using Project_SHOE.Controller.Repositori;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace BUS.Services
     {
         SanPhamRepos _repos = new SanPhamRepos();
         Thuonghieu _thuonghieu = new Thuonghieu();
+        NhanvienRepository _nhanvien = new NhanvienRepository();
 
         public SanPhamSer(SanPhamRepos repos)
         {
@@ -26,7 +28,10 @@ namespace BUS.Services
         {
             return _repos.CheckDuplicate(tenSanPham);
         }
-
+        public string GetTenSanPhamById(int idSanPham)
+        {
+            return _repos.GetTenSanPhamById(idSanPham);
+        }
         public bool CheckDuplicateForUpdate(string tenSanPham, int maSanPham)
         {
             // Kiểm tra xem tên sản phẩm có tồn tại và không trùng với sản phẩm khác (trừ sản phẩm đang cập nhật) không
@@ -66,10 +71,6 @@ namespace BUS.Services
         {
             return _repos.DeleteSP(id);
         }
-        public string GetTenSanPhamById(int idSanPham)
-        {
-            return _repos.GetTenSanPhamById(idSanPham);
-        }
         public Sanpham GetById(int id)
         {
             return _repos.GetById(id);
@@ -86,11 +87,13 @@ namespace BUS.Services
         {
             var joinData = from SanPham in _repos.GetAllSP()
                            join Thuonghieu in _repos.GetAllTH() on SanPham.IdThuonghieu equals Thuonghieu.IdThuonghieu
+                           join nhanvien in _nhanvien.GetAllNV() on SanPham.IdNhanvien equals nhanvien.IdNhanvien
                            select new ThuongHieuSP
                            {
                                IdSanpham = SanPham.IdSanpham,
                                TenSanPham = SanPham.Tensanpham,
                                TenThuongHieu = Thuonghieu.Tenthuonghieu,
+                               IdNhanvien = nhanvien.IdNhanvien,
                            };
             return joinData.ToList();
         }
@@ -98,11 +101,13 @@ namespace BUS.Services
         {
             var joinData = from SanPham in _repos.GetAllSP()
                            join Thuonghieu in _repos.GetAllTH() on SanPham.IdThuonghieu equals Thuonghieu.IdThuonghieu
+                           join nhanvien in _nhanvien.GetAllNV() on SanPham.IdNhanvien equals nhanvien.IdNhanvien
                            select new ThuongHieuSP
                            {
                                IdSanpham = SanPham.IdSanpham,
                                TenSanPham = SanPham.Tensanpham,
                                TenThuongHieu = Thuonghieu.Tenthuonghieu,
+                               IdNhanvien = nhanvien.IdNhanvien,
                            };
             if (string.IsNullOrWhiteSpace(searchText))
             {

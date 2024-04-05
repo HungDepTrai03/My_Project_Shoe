@@ -27,6 +27,29 @@ namespace Project_SHOE.Controller.Repositori
             _dbContext.SaveChanges();
             return true;
         }
+        public string CheckKhuyenMai(int idKhachHang, string idKhuyenMai)
+        {
+            var khuyenMai = _dbContext.Khuyenmais.FirstOrDefault(km => km.IdKhuyenmai == idKhuyenMai);
+
+            if (khuyenMai != null)
+            {
+                // Kiểm tra xem mã khuyến mại đã được sử dụng trong hóa đơn của khách hàng chưa
+                var existingKhuyenMai = _dbContext.Hoadons.FirstOrDefault(hd => hd.IdKhachhang == idKhachHang && hd.IdKhuyenmai == idKhuyenMai);
+
+                if (existingKhuyenMai != null)
+                {
+                    return "Khách hàng đã sử dụng mã khuyến mại.";
+                }
+                else
+                {
+                    return "Khách hàng chưa sử dụng mã khuyến mại.";
+                }
+            }
+            else
+            {
+                return "Mã khuyến mại không tồn tại.";
+            }
+        }
         public string UpdateSoLuongKhuyenMai(string idKhuyenMai)
         {
             var khuyenMai = _dbContext.Khuyenmais.FirstOrDefault(km => km.IdKhuyenmai == idKhuyenMai);
@@ -40,7 +63,7 @@ namespace Project_SHOE.Controller.Repositori
                     khuyenMai.Soluong--;
 
                     // Kiểm tra hạn khuyến mại đã hết hạn chưa
-                    if (khuyenMai.Ngayhethan < DateOnly.FromDateTime(DateTime.Today))
+                    if (khuyenMai.Ngayhethan < DateTime.Today)
                     {
                         // Nếu đã hết hạn, hiển thị thông báo và trả về -1 để chỉ ra rằng hạn khuyến mại đã hết
                         return "Mã khuyến mại đã hết hạn sử dụng. Vui lòng chọn khuyến mại khác.";
