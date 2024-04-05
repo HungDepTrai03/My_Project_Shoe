@@ -1,6 +1,7 @@
 ﻿using BUS.Services;
 using DAL.Models;
 using Microsoft.Data.SqlClient;
+using PRL.View;
 using Project_SHOE.Controller.Servicer;
 using System;
 using System.Collections.Generic;
@@ -122,7 +123,7 @@ namespace Project_SHOE.View
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            int idnhanvien = NhanVienService.GetIdNhanVien(int.Parse(label_NhanVien.Text));
+            int idnhanvien = NhanVienService.GetIdNhanVien(label_NhanVien.Text);
             int m = cbb_Hang.SelectedIndex;
             var s1 = new Sanpham();
             s1.Tensanpham = txt_tenSP.Text;
@@ -159,7 +160,7 @@ namespace Project_SHOE.View
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-            int idnhanvien = NhanVienService.GetIdNhanVien(int.Parse(label_NhanVien.Text));
+            int idnhanvien = NhanVienService.GetIdNhanVien(label_NhanVien.Text);
             int m = cbb_Hang.SelectedIndex;
             int maSP = int.Parse(txt_maSP.Text);
             string tenSanPhamMoi = txt_tenSP.Text;
@@ -275,6 +276,38 @@ namespace Project_SHOE.View
 
             // Hiển thị Form2
             form2.Show();
+        }
+
+        private void thươngHiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Hiển thị form thương hiệu single page
+            ThuongHieuForm form3 = new ThuongHieuForm();
+            form3.Show();
+
+        }
+
+        private void chấtLiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChatLieu f = new ChatLieu();
+            f.Show();
+        }
+
+        private void màuSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ColorForm colorForm = new ColorForm();
+            colorForm.Show();
+        }
+
+        private void loạiSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoaiSanPham loaiSanPham = new LoaiSanPham();
+            loaiSanPham.Show();
+        }
+
+        private void màuSảnPhẩmToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ColorForm colorForm = new ColorForm();
+            colorForm.Show();
         }
     }
 }

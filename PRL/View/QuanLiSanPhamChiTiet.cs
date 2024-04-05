@@ -174,7 +174,7 @@ namespace Project_SHOE.View
             }
             else
             {
-                int idnhanvien = NhanVienService.GetIdNhanVien(int.Parse(label_NhanVien.Text));
+                int idnhanvien = NhanVienService.GetIdNhanVien(label_NhanVien.Text);
                 var s1 = new Sanphamct();
                 int m = cbb_SP.SelectedIndex;
                 int n = cbb_LoaiSP.SelectedIndex;
@@ -255,7 +255,7 @@ namespace Project_SHOE.View
             }
             else
             {
-                int idnhanvien = NhanVienService.GetIdNhanVien(int.Parse(label_NhanVien.Text));
+                int idnhanvien = NhanVienService.GetIdNhanVien(label_NhanVien.Text);
                 int n = cbb_LoaiSP.SelectedIndex;
                 int b = cbb_Mau.SelectedIndex;
                 int v = cbb_Size.SelectedIndex;

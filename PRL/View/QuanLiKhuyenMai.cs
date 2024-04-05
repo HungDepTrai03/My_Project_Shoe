@@ -22,11 +22,13 @@ namespace Project_SHOE
         //tôi muốn thêm 1 button để gửi email thông báo cho khách hàng khi khuyến mãi hết hạn
         private KhuyenMaiService _service;
         private string _id_WhenClick;
-        public QuanLiKhuyenMai()
+        string username;
+        public QuanLiKhuyenMai(string username)
         {
             InitializeComponent();
             _service = new KhuyenMaiService();
             LoadData();
+            this.username = username;
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -91,9 +93,7 @@ namespace Project_SHOE
 
 
             km.Tenkhuyenmai = txt_tenKM.Text;
-            km.Ngayhethan = DateOnly.FromDateTime(dateTimePicker2.Value);
-            km.Ngaybatdau = DateOnly.FromDateTime(dateTimePicker1.Value);
-            km.Ngaytao = DateOnly.FromDateTime(dateTimePicker3.Value);
+            km.Ngayhethan = dateTimePicker1.Value;
             km.Sophantramkhuyenmai = decimal.Parse(txt_chietkhau.Text);
             km.Soluong = int.Parse(txt_soluong.Text);
             //nếu số lượng khuyến mãi = 0 thì trạng thái sẽ là đã hết
@@ -117,7 +117,7 @@ namespace Project_SHOE
                 return;
             }
             btn_sua.Enabled = false;
-            btn_xoa.Enabled = false;
+          
 
 
 
@@ -198,9 +198,9 @@ namespace Project_SHOE
             var km = new Khuyenmai();
             km.IdKhuyenmai = _id_WhenClick;
             km.Tenkhuyenmai = txt_tenKM.Text;
-            km.Ngaybatdau = DateOnly.FromDateTime(dateTimePicker1.Value);
-            km.Ngayhethan = DateOnly.FromDateTime(dateTimePicker2.Value);
-            km.Ngaytao = DateOnly.FromDateTime(dateTimePicker3.Value);
+            km.Ngaybatdau = dateTimePicker1.Value;
+            km.Ngayhethan = dateTimePicker2.Value;
+            km.Ngaytao = dateTimePicker3.Value;
             km.Soluong = int.Parse(txt_soluong.Text);
             km.Sophantramkhuyenmai = decimal.Parse(txt_chietkhau.Text);
             //nếu số lượng khuyến mãi = 0 thì trạng thái sẽ là đã hết
@@ -226,7 +226,6 @@ namespace Project_SHOE
 
 
 
-            btn_xoa.Enabled = true;
             btn_them.Enabled = false;
         }
 
@@ -248,7 +247,7 @@ namespace Project_SHOE
 
             txt_idKM.Enabled = false;
             btn_sua.Enabled = true;
-            btn_xoa.Enabled = true;
+          
             btn_them.Enabled = false;
 
 
@@ -256,23 +255,7 @@ namespace Project_SHOE
 
         }
 
-        private void btn_xoa_Click(object sender, EventArgs e)
-        {
-            var km = new Khuyenmai();
-            km.IdKhuyenmai = _id_WhenClick;
-            var option = MessageBox.Show("Bạn có chắc chắn muốn xóa khuyến mãi này không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (option == DialogResult.Yes)
-            {
-                _service.Delete(km);
-                LoadData();
-            }
-            else
-            {
-                return;
-            }
-
-
-        }
+  
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
@@ -299,7 +282,7 @@ namespace Project_SHOE
         {
             txt_idKM.Enabled = true;
             btn_sua.Enabled = false;
-            btn_xoa.Enabled = false;
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

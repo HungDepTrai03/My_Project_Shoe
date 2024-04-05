@@ -8,6 +8,7 @@ namespace PRL.Views
     public partial class TopSanPham : Form
     {
         TopSanPhamService _topSanPhamService = new TopSanPhamService();
+        double tongTien = 0;
 
         public TopSanPham()
         {
@@ -24,7 +25,7 @@ namespace PRL.Views
             if (toDate < fromDate)
             {
                 MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu.");
-           DateOnly date1 = DateOnly.FromDateTime(dateTimePicker1.Value);
+                DateOnly date1 = DateOnly.FromDateTime(dateTimePicker1.Value);
                 DateOnly date2 = DateOnly.FromDateTime(dateTimePicker2.Value);
                 return;
             }
@@ -57,27 +58,30 @@ namespace PRL.Views
                     item.soLuong ?? 0,
                     item.tongTien ?? 0,
                     item.TrangThai ?? "N/A",
-                    item.TenThuongHieu ?? "N/A");
+                    item.TenThuongHieu ?? "N/A",
+                    tongTien += item.tongTien);
             }
         }
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
         {
-           LoadData(_topSanPhamService.GetTopSellingProducts(DateOnly.FromDateTime(dateTimePicker1.Value),DateOnly.FromDateTime(dateTimePicker2.Value)));
-            
+            LoadData(_topSanPhamService.GetTopSellingProducts(dateTimePicker1.Value, dateTimePicker2.Value));
 
-           
+
+
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            LoadData(_topSanPhamService.GetTopSellingProducts(DateOnly.FromDateTime(dateTimePicker1.Value), DateOnly.FromDateTime(dateTimePicker2.Value)));
+            LoadData(_topSanPhamService.GetTopSellingProducts(dateTimePicker1.Value, dateTimePicker2.Value));
         }
 
         private void TopSanPham_Load_2(object sender, EventArgs e)
         {
             dateTimePicker1.Value = DateTime.Now.Date;
-            dateTimePicker2.Value = DateTime.Now.Date;
-            LoadData(_topSanPhamService.GetTopSellingProducts(DateOnly.FromDateTime(dateTimePicker1.Value), DateOnly.FromDateTime(dateTimePicker2.Value)));
+            dateTimePicker2.Value = DateTime.Now.Date; LoadData(_topSanPhamService.GetTopSellingProducts(dateTimePicker1.Value, dateTimePicker2.Value));
+            textBox1.Text = tongTien.ToString();
+            textBox1.Enabled = false;
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -86,7 +90,12 @@ namespace PRL.Views
         }
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

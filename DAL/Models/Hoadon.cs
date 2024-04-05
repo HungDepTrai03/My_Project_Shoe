@@ -13,8 +13,8 @@ public partial class Hoadon
     [Column("ID_HOADON")]
     public int IdHoadon { get; set; }
 
-    [Column("NGAYTAO")]
-    public DateOnly? Ngaytao { get; set; }
+    [Column("NGAYTAO", TypeName = "datetime")]
+    public DateTime? Ngaytao { get; set; }
 
     [Column("TONGTIEN")]
     public double? Tongtien { get; set; }

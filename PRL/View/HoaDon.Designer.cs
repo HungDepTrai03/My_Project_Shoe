@@ -1,6 +1,6 @@
 ﻿namespace PRL.Views
 {
-    partial class QuanLiBanHang
+    partial class HoaDon
     {
         /// <summary>
         /// Required designer variable.
@@ -66,7 +66,6 @@
             cbb_SanPham = new ComboBox();
             label7 = new Label();
             groupBox4 = new GroupBox();
-            btn_Clean = new Button();
             btn_ThanhToan = new Button();
             textBox2 = new TextBox();
             label18 = new Label();
@@ -87,6 +86,7 @@
             groupBox6 = new GroupBox();
             cbb_PhuongThucThanhToan = new ComboBox();
             label_NhanVien = new Label();
+            btn_Clean = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -466,15 +466,6 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Hoá Đơn";
             // 
-            // btn_Clean
-            // 
-            btn_Clean.Location = new Point(465, 170);
-            btn_Clean.Name = "btn_Clean";
-            btn_Clean.Size = new Size(96, 45);
-            btn_Clean.TabIndex = 40;
-            btn_Clean.Text = "Clean";
-            btn_Clean.UseVisualStyleBackColor = true;
-            // 
             // btn_ThanhToan
             // 
             btn_ThanhToan.Location = new Point(343, 170);
@@ -658,7 +649,16 @@
             label_NhanVien.TabIndex = 38;
             label_NhanVien.Text = "label11";
             // 
-            // QuanLiBanHang
+            // btn_Clean
+            // 
+            btn_Clean.Location = new Point(465, 170);
+            btn_Clean.Name = "btn_Clean";
+            btn_Clean.Size = new Size(96, 45);
+            btn_Clean.TabIndex = 40;
+            btn_Clean.Text = "Clean";
+            btn_Clean.UseVisualStyleBackColor = true;
+            // 
+            // HoaDon
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -672,7 +672,7 @@
             Controls.Add(groupBox1);
             Controls.Add(groupBox2);
             Controls.Add(pictureBox1);
-            Name = "QuanLiBanHang";
+            Name = "HoaDon";
             Text = "HoaDon";
             Load += HoaDon_Load;
             groupBox1.ResumeLayout(false);

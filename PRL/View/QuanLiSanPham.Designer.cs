@@ -50,6 +50,11 @@
             thuonghieuBindingSource = new BindingSource(components);
             menuStrip1 = new MenuStrip();
             sảnPhẩmChiTiếtToolStripMenuItem = new ToolStripMenuItem();
+            thươngHiệuToolStripMenuItem = new ToolStripMenuItem();
+            chấtLiệuToolStripMenuItem = new ToolStripMenuItem();
+            màuSảnPhẩmToolStripMenuItem = new ToolStripMenuItem();
+            loạiSảnPhẩmToolStripMenuItem = new ToolStripMenuItem();
+            màuSảnPhẩmToolStripMenuItem1 = new ToolStripMenuItem();
             label_NhanVien = new Label();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -258,7 +263,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { sảnPhẩmChiTiếtToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { sảnPhẩmChiTiếtToolStripMenuItem, thươngHiệuToolStripMenuItem, chấtLiệuToolStripMenuItem, màuSảnPhẩmToolStripMenuItem, loạiSảnPhẩmToolStripMenuItem, màuSảnPhẩmToolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(6, 3, 0, 3);
@@ -273,6 +278,41 @@
             sảnPhẩmChiTiếtToolStripMenuItem.Size = new Size(142, 24);
             sảnPhẩmChiTiếtToolStripMenuItem.Text = "Sản Phẩm Chi Tiết";
             sảnPhẩmChiTiếtToolStripMenuItem.Click += sảnPhẩmChiTiếtToolStripMenuItem_Click;
+            // 
+            // thươngHiệuToolStripMenuItem
+            // 
+            thươngHiệuToolStripMenuItem.Name = "thươngHiệuToolStripMenuItem";
+            thươngHiệuToolStripMenuItem.Size = new Size(109, 24);
+            thươngHiệuToolStripMenuItem.Text = "Thương Hiệu";
+            thươngHiệuToolStripMenuItem.Click += thươngHiệuToolStripMenuItem_Click;
+            // 
+            // chấtLiệuToolStripMenuItem
+            // 
+            chấtLiệuToolStripMenuItem.Name = "chấtLiệuToolStripMenuItem";
+            chấtLiệuToolStripMenuItem.Size = new Size(84, 24);
+            chấtLiệuToolStripMenuItem.Text = "Chất Liệu";
+            chấtLiệuToolStripMenuItem.Click += chấtLiệuToolStripMenuItem_Click;
+            // 
+            // màuSảnPhẩmToolStripMenuItem
+            // 
+            màuSảnPhẩmToolStripMenuItem.Name = "màuSảnPhẩmToolStripMenuItem";
+            màuSảnPhẩmToolStripMenuItem.Size = new Size(121, 24);
+            màuSảnPhẩmToolStripMenuItem.Text = "Màu Sản Phẩm";
+            màuSảnPhẩmToolStripMenuItem.Click += màuSảnPhẩmToolStripMenuItem_Click;
+            // 
+            // loạiSảnPhẩmToolStripMenuItem
+            // 
+            loạiSảnPhẩmToolStripMenuItem.Name = "loạiSảnPhẩmToolStripMenuItem";
+            loạiSảnPhẩmToolStripMenuItem.Size = new Size(120, 24);
+            loạiSảnPhẩmToolStripMenuItem.Text = "Loại Sản Phẩm";
+            loạiSảnPhẩmToolStripMenuItem.Click += loạiSảnPhẩmToolStripMenuItem_Click;
+            // 
+            // màuSảnPhẩmToolStripMenuItem1
+            // 
+            màuSảnPhẩmToolStripMenuItem1.Name = "màuSảnPhẩmToolStripMenuItem1";
+            màuSảnPhẩmToolStripMenuItem1.Size = new Size(121, 24);
+            màuSảnPhẩmToolStripMenuItem1.Text = "Màu Sản Phẩm";
+            màuSảnPhẩmToolStripMenuItem1.Click += màuSảnPhẩmToolStripMenuItem1_Click;
             // 
             // label_NhanVien
             // 
@@ -337,5 +377,10 @@
         private TextBox txt_TimKiem;
         private ToolStripMenuItem sảnPhẩmChiTiếtToolStripMenuItem;
         private Label label_NhanVien;
+        private ToolStripMenuItem thươngHiệuToolStripMenuItem;
+        private ToolStripMenuItem chấtLiệuToolStripMenuItem;
+        private ToolStripMenuItem màuSảnPhẩmToolStripMenuItem;
+        private ToolStripMenuItem loạiSảnPhẩmToolStripMenuItem;
+        private ToolStripMenuItem màuSảnPhẩmToolStripMenuItem1;
     }
 }

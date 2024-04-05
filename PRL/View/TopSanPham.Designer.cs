@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            button1 = new Button();
             dateKetThuc = new Label();
             dateTimePicker2 = new DateTimePicker();
             dateBatDau = new Label();
             dateTimePicker1 = new DateTimePicker();
             dgrTopSP = new DataGridView();
             label1 = new Label();
-            button1 = new Button();
+            label5 = new Label();
+            textBox1 = new TextBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgrTopSP).BeginInit();
             SuspendLayout();
@@ -55,6 +57,16 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Top 10 bán chạy";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(718, 28);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 65);
+            button1.TabIndex = 5;
+            button1.Text = "Xuất file Excel";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // dateKetThuc
             // 
@@ -113,21 +125,32 @@
             label1.TabIndex = 3;
             label1.Text = "Top sản phẩm bán chạy";
             // 
-            // button1
+            // label5
             // 
-            button1.Location = new Point(718, 28);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 65);
-            button1.TabIndex = 5;
-            button1.Text = "Xuất file Excel";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            label5.AutoSize = true;
+            label5.Location = new Point(711, 56);
+            label5.Name = "label5";
+            label5.Size = new Size(72, 20);
+            label5.TabIndex = 8;
+            label5.Text = "Tổng tiền";
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(842, 26);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(200, 57);
+            textBox1.TabIndex = 7;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // TopSanPham
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1064, 684);
+            Controls.Add(label5);
+            Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(groupBox1);
             Name = "TopSanPham";
@@ -150,5 +173,7 @@
         private DateTimePicker dateTimePicker2;
         private Label label1;
         private Button button1;
+        private Label label5;
+        private TextBox textBox1;
     }
 }

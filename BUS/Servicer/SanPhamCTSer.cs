@@ -185,7 +185,6 @@ namespace BUS.Services
                                Soluong = spct.Soluong,
                                Dongia = spct.Dongia,
                                IdNhanvien = spct.IdNhanvien,
-                              
                            };
             return joinData.ToList();
         }

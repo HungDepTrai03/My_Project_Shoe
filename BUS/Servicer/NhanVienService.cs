@@ -19,7 +19,7 @@ namespace Project_SHOE.Controller.Servicer
         {
             _repos = new NhanvienRepository();
         }
-        public int GetIdNhanVien(int sdt)
+        public int GetIdNhanVien(string sdt)
         {
             return _repos.GetIdNhanVien(sdt);
         }

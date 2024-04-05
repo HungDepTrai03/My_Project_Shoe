@@ -37,7 +37,6 @@
             txt_seach = new TextBox();
             label7 = new Label();
             btn_sua = new Button();
-            btn_xoa = new Button();
             btn_them = new Button();
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
@@ -78,7 +77,6 @@
             groupBox1.Controls.Add(txt_seach);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(btn_sua);
-            groupBox1.Controls.Add(btn_xoa);
             groupBox1.Controls.Add(btn_them);
             groupBox1.Controls.Add(dateTimePicker2);
             groupBox1.Controls.Add(dateTimePicker1);
@@ -155,7 +153,7 @@
             // 
             // btn_sua
             // 
-            btn_sua.Location = new Point(160, 245);
+            btn_sua.Location = new Point(220, 247);
             btn_sua.Margin = new Padding(3, 4, 3, 4);
             btn_sua.Name = "btn_sua";
             btn_sua.Size = new Size(97, 31);
@@ -163,17 +161,6 @@
             btn_sua.Text = "Sửa";
             btn_sua.UseVisualStyleBackColor = true;
             btn_sua.Click += btn_sua_Click;
-            // 
-            // btn_xoa
-            // 
-            btn_xoa.Location = new Point(286, 245);
-            btn_xoa.Margin = new Padding(3, 4, 3, 4);
-            btn_xoa.Name = "btn_xoa";
-            btn_xoa.Size = new Size(97, 31);
-            btn_xoa.TabIndex = 15;
-            btn_xoa.Text = "Xóa";
-            btn_xoa.UseVisualStyleBackColor = true;
-            btn_xoa.Click += btn_xoa_Click;
             // 
             // btn_them
             // 
@@ -346,7 +333,6 @@
         private PictureBox pictureBox1;
         private GroupBox groupBox1;
         private Button btn_sua;
-        private Button btn_xoa;
         private Button btn_them;
         private DateTimePicker dateTimePicker2;
         private DateTimePicker dateTimePicker1;

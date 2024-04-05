@@ -22,10 +22,12 @@ namespace Project_SHOE
         KhachHangRepository khachHangRepository;
         private KhachHangService _service;
         private int _id_whenClick;
-        public QuanLiKhachHang()
+        string username;
+        public QuanLiKhachHang(string username)
         {
             InitializeComponent();
             _service = new KhachHangService();
+            this.username = username;
         }
         private bool IsValidPhoneNumber(string phoneNumber)
         {

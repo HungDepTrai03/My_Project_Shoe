@@ -59,12 +59,14 @@ namespace Project_SHOE.View
 
         private NhanVienService _service;
         private int _idWhenClick;
-        public QuanLiNhanVien()
+        string username;
+        public QuanLiNhanVien(string username)
         {
             InitializeComponent();
             _service = new NhanVienService();
             LoadComboBox();
             LoadData();
+            this.username = username;
         }
 
 
@@ -144,9 +146,9 @@ namespace Project_SHOE.View
             }
             var nv = new Nhanvien();
             nv.Hovaten = txt_name.Text;
-            nv.Sdt = int.Parse(txt_sdt.Text);
+            nv.Sdt = txt_sdt.Text;
             //ngaysinh được đặt là dateonly vậy có hàm nào để lấy ngày sinh không
-            nv.Ngaysinh = DateOnly.Parse(dateTimePicker1.Text);
+            //nv.Ngaysinh = dateTimePicker1.Value;
 
 
             nv.Diachi = txt_diachi.Text;
@@ -271,8 +273,8 @@ namespace Project_SHOE.View
             var nv = new Nhanvien();
             nv.IdNhanvien = _idWhenClick;
             nv.Hovaten = txt_name.Text;
-            nv.Sdt = int.Parse(txt_sdt.Text);
-            nv.Ngaysinh = DateOnly.Parse(dateTimePicker1.Text);
+            nv.Sdt = txt_sdt.Text;
+            nv.Ngaysinh = dateTimePicker1.Value;
             nv.Diachi = txt_diachi.Text;
             if (radioButton1.Checked)
             {

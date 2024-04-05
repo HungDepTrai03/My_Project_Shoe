@@ -40,23 +40,5 @@ namespace BUS.Services
         {
             return _repos.GetALLHoadons().ToList();
         }
-        public List<HoaDon> Getview()
-        {
-            var joinData = from Khachhang in khachHangService.GetAllKH()
-                           join HoaDon1 in _repos.GetALLHoadons() on Khachhang.IdKhachhang equals HoaDon1.IdKhachhang
-                           join Khuyenmai in khuyenMaiService.GetALLKhuyenMai() on HoaDon1.IdKhuyenmai equals Khuyenmai.IdKhuyenmai
-                           select new HoaDon
-                           {
-                               IdHoaDon = HoaDon1.IdHoadon,
-                               NgayTao = HoaDon1.Ngaytao,
-                               TongTien = HoaDon1.Tongtien,
-                               TenKhachHang = Khachhang.Hovaten,
-                               SoDienThoai = Khachhang.Sdt,
-                               DiaChi = Khachhang.Diachi,
-                               IdKhuyenMai = Khuyenmai.IdKhuyenmai,
-                               TrangThai = HoaDon1.Trangthai,
-                           };
-            return joinData.ToList();
-        }
     }
 }

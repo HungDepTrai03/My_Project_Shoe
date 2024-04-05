@@ -25,7 +25,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace PRL.Views
 {
-    public partial class QuanLiBanHang : Form
+    public partial class HoaDon : Form
     {
         string username;
         HashSet<string> addedColors = new HashSet<string>();
@@ -39,7 +39,7 @@ namespace PRL.Views
         KhuyenMaiService KhuyenMaiService = new KhuyenMaiService();
         NhanVienService NhanVienService = new NhanVienService();
 
-        public QuanLiBanHang(string username)
+        public HoaDon(string username)
         {
             this.username = username;
             KhuyenMaiService = new KhuyenMaiService();
@@ -627,7 +627,7 @@ namespace PRL.Views
             if (confirmation == DialogResult.Yes)
             {
                 var hoadon = new Hoadon();
-                int idnhanvien = NhanVienService.GetIdNhanVien(int.Parse(label_NhanVien.Text));
+                int idnhanvien = NhanVienService.GetIdNhanVien(label_NhanVien.Text);
                 // Lấy thông tin khách hàng từ ComboBox và TextBox
                 string tenKhachHang = cbb_KhachHang.Text;
                 string sdtKhachHang = txt_sdtKH.Text;
@@ -665,7 +665,7 @@ namespace PRL.Views
                     return;
                 }    
                 // Lấy ngày tạo từ DateTimePicker
-                DateOnly ngayTao = DateOnly.FromDateTime(dtp_NgayTao.Value);
+                DateTime ngayTao = dtp_NgayTao.Value;
 
                 // Gán giá trị cho hóa đơn
                 hoadon.IdNhanvien = Convert.ToInt32(label_NhanVien.Text);
@@ -690,7 +690,7 @@ namespace PRL.Views
                 {
                     // Kiểm tra khuyến mại và xử lý tương ứng
                     string khuyenmaiStatus = KhuyenMaiService.CheckKhuyenMai(idKhachHang, idKhuyenMai);
-                    if (khuyenmaiStatus == "Khách Hàng Đã Sử Dụng Mã Khuyến Mại")
+                    if (khuyenmaiStatus == "Khách hàng đã sử dụng mã khuyến mại.")
                     {
                         MessageBox.Show(khuyenmaiStatus, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return; // Ngăn người dùng tiếp tục quá trình lưu hóa đơn
@@ -700,7 +700,7 @@ namespace PRL.Views
                         // Gọi phương thức UpdateSoLuongKhuyenMai từ KhuyenMaiService
                         string updateStatus = KhuyenMaiService.UpdateSoLuongKhuyenMai(idKhuyenMai);
                         // Kiểm tra kết quả trả về từ phương thức và xử lý tương ứng
-                        if (updateStatus == "Áp Dụng Khuyến Mại Thành Công")
+                        if (updateStatus == "Áp dụng khuyến mại thành công.")
                         {
                             hoadon.IdKhuyenmai = idKhuyenMai;
                         }
@@ -1042,7 +1042,7 @@ namespace PRL.Views
                 }
 
                 // Kiểm tra hạn khuyến mại đã hết hạn chưa
-                if (khuyenMai.Ngayhethan < DateOnly.FromDateTime(DateTime.Today))
+                if (khuyenMai.Ngayhethan < DateTime.Today)
                 {
                     // Nếu đã hết hạn, hiển thị thông báo và trả về -1 để chỉ ra rằng hạn khuyến mại đã hết
                     MessageBox.Show("Mã khuyến mại đã hết hạn sử dụng. Vui lòng chọn khuyến mại khác.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
